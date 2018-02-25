@@ -30,7 +30,16 @@ session_start();
 			<h4> Categories Section</h4>
 			<div class="main">
 				<form class="lol" action="index.html" method="post">
-					<label for="name"> Name : </label><input class="name" type="text" name="name" value="Name"> <br><br>
+					<div class="choose_cat">
+						<label for="name"> Category Name : </label>
+						<select class="" name="cate_menu">
+							<?php
+							//foreach ($categories as $key => $value) {
+							//} ?>
+							<option value=""> Books </option>
+						</select>
+					</div>
+					<br>
 					<label for="name"> New Name : </label><input class="newname" type="text" name="newname" value="newname"> <br><br>
 					<button class="btn" type="submit" name="add"> Add </button>
 					<button class="btn" type="submit" name="modify"> Modify </button>

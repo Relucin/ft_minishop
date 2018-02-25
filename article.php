@@ -47,24 +47,8 @@ session_start();
 					</form>
 				</div>
 			</div>
-			<div id="cart">
-					<h2> Basket </h2>
-					<table class="bask">
-						<thead>
-							<tr>
-								<td> Name </td>
-								<td></td>
-								<td class="right"> Price </td>
-								<td class="right"> Count </td>
-							</tr>
-						</thead>
-					</table>
-					<div >
-						<form class="cartvalid" method="post">
-							<button class="validbtn" type="submit" name="validate"> Validate Basket </button>
-						</form>
-					</div>
-			</div>
+			<?php include("basket.php") ?>
+
 
 		</div>
 		<div class="footer">

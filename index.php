@@ -36,7 +36,8 @@ session_start();
 					<button class="dropbtn">Categories</button>
 					<div class='dropdown-content'>
 					<?php
-						echo "<a href='#'>Books</a>";
+					//	foreach ($categories as $key => $value) {
+					//	echo "<a href='index.php?category=".$_GET['categories']."'>Books</a>";
 						echo "<a href='#'>LOL</a>";
 					?>
 					</div>
@@ -53,50 +54,7 @@ session_start();
 
 				?>
 			</div>
-			<div id="cart">
-					<h2> Basket </h2>
-					<table class="bask">
-						<thead>
-							<tr>
-								<td class="label"> Name </td>
-								<td class="label"> Price </td>
-								<td class="label"> Count </td>
-							</tr>
-						</thead>
-
-						<tbody>
-							<?php  ?>
-							<td class="label"> Book 1 </td>
-							<td class="label"> 5 $ </td>
-							<td class="label"> 15 </td>
-						</tbody>
-
-						<tfoot>
-							<tr>
-								<td colspan="5"></td>
-								<td class="right"><?php echo isset($_SESSION['basketPrice']) ? $_SESSION['basketPrice'] : '0.00'; ?>
-									$
-								</td>
-							</tr>
-						</tfoot>
-					</table>
-
-							<div class="cartvalid">
-								<?php
-									if (isset($_SESSION['pseudo'])) {
-										echo "<form method=\"post\" action=\"controller/orders.php\" />
-										<input type=\"hidden\" name=\"from\" value=\"basket\" />
-										<input type=\"hidden\" name=\"success\" value=\"member\" />
-
-										<button class='validbtn' type='submit' name='validate'> Validate Basket </button>
-										</form>";
-										//<a href='#' class='button'>Valider la commande</a>";
-									} else {
-										echo "<button class='notloggedbtn' type='submit' name='login'><a href='login.php' class=''>Log in to validade</a></button>";
-									}
-								?></div>
-
-			</div>
+			<?php include("basket.php") ?>
 
 		</div>
 		<div class="footer">

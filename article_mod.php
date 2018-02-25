@@ -32,7 +32,16 @@ session_start();
 				<form class="lol" action="index.html" method="post">
 					<label for="name"> Name : </label><input class="name" type="text" name="name" value="Name"> <br><br>
 					<label for="name"> New Name : </label><input class="newname" type="text" name="newname" value="newname"> <br><br>
-					<label for="name"> Category : </label><input class="category" type="text" name="category" value="Category"> <br><br>
+					<div class="choose_cat">
+						<label for="name"> Category : </label>
+						<select class="" name="cate_menu">
+							<?php
+							//foreach ($categories as $key => $value) {
+							//} ?>
+							<option value=""> Books </option>
+						</select>
+					</div>
+					<br>
 					<textarea name="description" id="description" rows="8" cols="40" > Describe the article</textarea>  <br>
 					<button class="btn" type="submit" name="add"> Add </button>
 					<button class="btn" type="submit" name="modify"> Modify </button>
