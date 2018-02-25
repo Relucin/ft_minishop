@@ -43,3 +43,7 @@
 	width: 100%;
 	border: 1px solid black;
 }
+
+td{
+	width: 33%;
+}

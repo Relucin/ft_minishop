@@ -59,11 +59,26 @@ session_start();
 						<thead>
 							<tr>
 								<td class="label"> Name </td>
-								<td></td>
 								<td class="label"> Price </td>
 								<td class="label"> Count </td>
 							</tr>
 						</thead>
+
+						<tbody>
+							<?php  ?>
+							<td class="label"> Book 1 </td>
+							<td class="label"> 5 $ </td>
+							<td class="label"> 15 </td>
+						</tbody>
+
+						<tfoot>
+							<tr>
+								<td colspan="5"></td>
+								<td class="right"><?php echo isset($_SESSION['basketPrice']) ? $_SESSION['basketPrice'] : '0.00'; ?>
+									$
+								</td>
+							</tr>
+						</tfoot>
 					</table>
 
 							<div class="cartvalid">
