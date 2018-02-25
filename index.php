@@ -23,12 +23,16 @@ session_start();
 				<ul class="menu">
 					<li><a href="index.php"> Home </a></li>
 					<?php
-					if (!isset($_SESSION['user_id'])) {
-						echo '
-					<li><a href="signup.php"> Sign up </a></li>
-					<li><a href="login.php"> Log in </a></li>
-					<li><a href="admin_section.php"> Admin Portal </a></li>';
-					}
+						if (!isset($_SESSION['user_id'])) {
+							echo '
+						<li><a href="signup.php"> Sign up </a></li>
+						<li><a href="login.php"> Log in </a></li>
+						<li><a href="admin_section.php"> Admin Portal </a></li>';
+						} else {
+							echo '
+								<li><a href="logout.php">Log out</a></li>
+							';
+						}
 					?>
 				</ul>
 			</div>
