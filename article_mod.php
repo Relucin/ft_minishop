@@ -10,7 +10,6 @@ session_start();
 	<meta charset="utf-8">
 	<link rel="stylesheet" href="css/index.css">
 	<link rel="stylesheet" href="css/admin_section.css">
-	<link rel="stylesheet" href="css/validbtn.css">
 
 	<title>Our e shop website</title>
 </head>
@@ -28,7 +27,7 @@ session_start();
 
 		<div class="section">
 			<h2 class="admin_portal"> Admin Portal</h2>
-			<h4> Article Section</h4>
+			<h4> Articles Section</h4>
 			<div class="main">
 				<form class="lol" action="index.html" method="post">
 					<label for="name"> Name : </label><input class="name" type="text" name="name" value="Name"> <br><br>

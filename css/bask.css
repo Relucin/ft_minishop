@@ -1,13 +1,45 @@
+#cart{
+	position: relative;
+	margin-top: 30px;
+	margin-right: 2%;
+	background-color: #3F8EbF;
+	float: right;
+	border-radius: 9px;
+	width: 300px;
+	height: 500px;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	text-align: center;
+}
+
+#cart h4{
+	color: white;
+	text-align: center;
+}
+
+.cartvalid{
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+}
+
+.notloggedbtn{
+}
+
 .validbtn {
+	position: absolute;
+	border-radius: 9px;
 	background-color: white;
 	color: #3F8EBF;
+	bottom: 0;
 }
 
 .cart{
 	position: absolute;
 }
 
-.bask tr{
-	position: absolute;
-	right: 0;
+.bask{
+	width: 100%;
+	border: 1px solid black;
 }

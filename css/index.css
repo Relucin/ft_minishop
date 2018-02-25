@@ -12,23 +12,6 @@ body{
 	flex-direction: column;
 }
 
-#cart{
-	position: relative;
-	margin-top: 30px;
-	margin-right: 2%;
-	background-color: #3F8EbF;
-	float: right;
-	border-radius: 9px;
-	width: 250px;
-	height: 500px;
-	text-align: center;
-}
-
-#cart h4{
-	color: white;
-	text-align: center;
-}
-
 .footer{
 	position: absolute;
 	bottom: 0px;
@@ -50,7 +33,7 @@ body{
 	display: flex;
 	justify-content: space-between;
 	margin: 10px;
-	border: 1px solid black;
+	width: 95%;
 }
 
 .menu{
@@ -128,9 +111,32 @@ body{
 	background-color: #66CCFF;
 }
 
-.validbtn{
-	position: absolute;
-	color: white;
-	display: inline-block;
-	bottom: 0;
+#products{
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	width: 100%;
+}
+
+.article{
+	padding: 10px;
+	display: flex;
+	justify-content: center;
+	width: 90%;
+
+}
+
+a{
+	text-decoration: none;
+}
+
+.article .artname{
+	margin: 0 10px;
+}
+
+.article .artdes{
+	margin: 0 10px;
+	height: 40px;
+	overflow: auto;
+
 }

@@ -10,7 +10,6 @@ session_start();
 	<meta charset="utf-8">
 	<link rel="stylesheet" href="css/index.css">
 	<link rel="stylesheet" href="css/admin_section.css">
-	<link rel="stylesheet" href="css/validbtn.css">
 
 	<title>Our e shop website</title>
 </head>
