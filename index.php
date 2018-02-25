@@ -31,13 +31,16 @@ session_start();
 			<div class="dropdown">
 				<button class="dropbtn">Categories</button>
 				<div class="dropdown-content">
-					<a href="#">Category 1</a>
-					<a href="#">Category 2</a>
-					<a href="#">Category 3</a>
+					<a href="#">Books</a>
 				</div>
 			</div>
-			<div class="sidebar">
-
+			<div class="cart">
+					<h2> Cart </h2>
+				<div class="validbtn">
+					<form class="cartvalid" method="post">
+						<input type="submit" name="validate" value="Validate Cart">
+					</form>
+					</div>
 			</div>
 
 		</div>
