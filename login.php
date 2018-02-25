@@ -1,29 +1,42 @@
 <?php
 session_start();
-$ret = "";
+// $ret = "";
 if (isset($_SESSION['user_id'])) {
-header("Location: index.php");
+	header("Location: index.php");
 }
-if ($_GET['submit'] == 'Submit' && $_GET['passwd'] && $_GET['uname']) {
-require 'user_hash.php';
-require 'db_init.php';
-if (!$link)
-header("Location: index.php");
-$query = sprintf("SELECT * FROM Users WHERE `user_uname`='%s'",	mysqli_real_escape_string($link, $_GET['uname']));
-if ($result = mysqli_query($link, $query)){
-if ($row = mysqli_fetch_assoc($result)) {
-if ($row['user_passwd'] === get_hash($_GET['passwd'])) {
-$_SESSION['user_id'] = $row['user_id'];
-$_SESSION['user_uname'] = $row['user_uname'];
-$_SESSION['user_auth'] = $row['user_auth'];
-header("Location: index.php");
-} else { $ret = "Incorrect username or password\n";	}
-} else { $ret = "User not found\n";	}
-} else { $ret = "Error\n"; }
-}
+// if ($_GET['submit'] == 'Submit' && $_GET['passwd'] && $_GET['uname']) {
+// require 'user_hash.php';
+// require 'db_init.php';
+// if (!$link)
+// header("Location: index.php");
+// $query = sprintf("SELECT * FROM Users WHERE `user_uname`='%s'",	mysqli_real_escape_string($link, $_GET['uname']));
+// if ($result = mysqli_query($link, $query)){
+// if ($row = mysqli_fetch_assoc($result)) {
+// if ($row['user_passwd'] === get_hash($_GET['passwd'])) {
+// $_SESSION['user_id'] = $row['user_id'];
+// $_SESSION['user_uname'] = $row['user_uname'];
+// $_SESSION['user_auth'] = $row['user_auth'];
+// header("Location: index.php");
+// } else { $ret = "Incorrect username or password\n";	}
+// } else { $ret = "User not found\n";	}
+// } else { $ret = "Error\n"; }
+// }
 ?>
-
 <html>
+	<head>
+		<title>Login</title>
+	</head>
+	<body>
+		<form method="post" action="user.php">
+			Username: <input type="text" name="username"/>
+			<br/>
+			Password: <input type="password" name="password"/>
+			<br/>
+			<input type="submit" name="submit" value="Login"/>
+		</form>
+	</body>
+</html>
+<!-- <html>
 	<head>
 		<title>Needful Things | New User</title>
 		<link href='https://fonts.googleapis.com/css?family=Amarante' rel='stylesheet'>
@@ -151,7 +164,7 @@ header("Location: index.php");
 			</br>
 			<div class="errorbox">
 				<?php
-				echo $ret;
+				// echo $ret;
 				?>
 			</div>
 			<div class="menu_bar">
@@ -160,7 +173,11 @@ header("Location: index.php");
 				</div>
 				<form method="get" action="login.php">
 					<div class="center">
-						Username: <input type="text" name="uname" value="<?php echo $_GET['uname'];?>" />
+						Username: <input type="text" name="uname" value="
+						<?php
+						// echo $_GET['uname'];
+						?>
+						" />
 					</div>
 					<div class="center">
 						Password: <input name="passwd" type="password" value="" />
@@ -182,4 +199,4 @@ header("Location: index.php");
 			</div>
 		</div>
 	</body>
-</html>
+</html> -->

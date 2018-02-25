@@ -1,15 +1,23 @@
 <?php
 session_start();
-require 'db_init.php';
+// require 'db_init.php';
 
-function get_name() {
-if (isset($_SESSION['user_id']))
-echo "Welcome ".$_SESSION['user_uname'];
-else
-echo "Welcome Guest";
-}
+// function get_name() {
+// if (isset($_SESSION['user_id']))
+// echo "Welcome ".$_SESSION['user_uname'];
+// else
+// echo "Welcome Guest";
+// }
 ?>
 <html>
+	<head>
+		<title>Index</title>
+	</head>
+	<body>
+		<button type="button" onclick="location.href='login.php'">Log In</button>
+	</body>
+</html>
+<!-- <html>
 	<head>
 		<title>Needful Things</title>
 		<link href='https://fonts.googleapis.com/css?family=Amarante' rel='stylesheet'>
@@ -218,16 +226,16 @@ echo "Welcome Guest";
 						<button class="dropbtn" onclick="location.href='#'"><?php get_name(); ?></button>
 						<div class="dropdown-content">
 							<?php
-							if (isset($_SESSION['user_id'])) {
-							echo "<a href='logout.php'>Logout</a>
-							<a href='user_modify.php''>Account Modify</a>";
-							if ($_SESSION['user_auth']) {
-							echo "<a href='admin_portal.php'>Admin Portal</a>";
-							}
-							} else {
-							echo "<a href='login.php'>Sign In</a>
-							<a href='user_create.php'>Sign Up</a>";
-							}
+							// if (isset($_SESSION['user_id'])) {
+							// echo "<a href='logout.php'>Logout</a>
+							// <a href='user_modify.php''>Account Modify</a>";
+							// if ($_SESSION['user_auth']) {
+							// echo "<a href='admin_portal.php'>Admin Portal</a>";
+							// }
+							// } else {
+							// echo "<a href='login.php'>Sign In</a>
+							// <a href='user_create.php'>Sign Up</a>";
+							// }
 							?>
 						</div>
 					</div>
@@ -245,34 +253,34 @@ echo "Welcome Guest";
 			</br>
 			</br>
 			<?php
-			$query= "SELECT * FROM Items";
-			$result = mysqli_query($link, $query);
-			$num=0;
-			while ($row = mysqli_fetch_assoc($result)) {
-			if ($num % 3 == 0) {
-			echo '<div class="item_row">';
-				echo "\n";
-				}
-				echo '<a class="title" href="item.php?=';
-					$str = $row['item_name'];
-					echo "$str".'">'."$str</a>\n";
-				echo "<img class='image' src='".$row['item_url']."'>";
-				echo "<div class='stock'>".$row['item_count']."</div>\n";
-			echo "</div>\n";
-		if ($num % 3 == 2) {
-		echo "</div>\n";
-	}
-	$num++;
-
-	}
-	if ($num == 0)
-	echo '<div class="item_row>
-		<div class="item">
-			<a class="title" href="">Empty Database</a>
-			<img class="image" src="">
-			<div class="stock">:( :( :(</div>
-		</div>
-	</div>';
+	// 		$query= "SELECT * FROM Items";
+	// 		$result = mysqli_query($link, $query);
+	// 		$num=0;
+	// 		while ($row = mysqli_fetch_assoc($result)) {
+	// 		if ($num % 3 == 0) {
+	// 		echo '<div class="item_row">';
+	// 			echo "\n";
+	// 			}
+	// 			echo '<a class="title" href="item.php?=';
+	// 				$str = $row['item_name'];
+	// 				echo "$str".'">'."$str</a>\n";
+	// 			echo "<img class='image' src='".$row['item_url']."'>";
+	// 			echo "<div class='stock'>".$row['item_count']."</div>\n";
+	// 		echo "</div>\n";
+	// 	if ($num % 3 == 2) {
+	// 	echo "</div>\n";
+	// }
+	// $num++;
+    //
+	// }
+	// if ($num == 0)
+	// echo '<div class="item_row>
+	// 	<div class="item">
+	// 		<a class="title" href="">Empty Database</a>
+	// 		<img class="image" src="">
+	// 		<div class="stock">:( :( :(</div>
+	// 	</div>
+	// </div>';
 	?>
 	</br>
 	<hr>
@@ -283,4 +291,4 @@ echo "Welcome Guest";
 </div>
 
 	</body>
-</html>
+</html> -->
