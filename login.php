@@ -1,10 +1,9 @@
 
 <?php
-    session_start();
-    if (isset($_SESSION['pseudo']) && !empty($_SESSION['pseudo'])) {
-        header('Location: index.php');
-        exit();
-    }
+	session_start();
+	if (isset($_SESSION['user_id'])) {
+		header('Location: index.php');
+	}
 ?>
 
 
@@ -33,10 +32,10 @@
 		<div class="section">
 			<div class="log">
 				<h1>Log in</h1>
-				<form action="controller/people.php" method="POST">
-					<input type="text" name="name" placeholder="Name" class="" value="">
-					<input type="password" name="password" placeholder="Password" class="">
-					<button type="submit" class="">Log in</button>
+				<form action="user.php" method="POST">
+					<input type="text" name="username" placeholder="Name">
+					<input type="password" name="password" placeholder="Password">
+					<button type="submit" name="submit" value="Login">Login</button>
 
 					<p>Not member yet ? <a href="signup.php">Sign Up !</a></p>
 				</form>
