@@ -12,13 +12,13 @@ session_start();
 	<link rel="stylesheet" href="css/admin_section.css">
 	<link rel="stylesheet" href="css/validbtn.css">
 
-	<title>Our e shop website</title>
+	<title>iBrand On</title>
 </head>
 <body>
 	<div class="container">
 
 		<div class="header">
-			<br> <h1>Our E-Shop Website</h1> <br>
+			<br> <h1>iBrand On</h1> <br>
 			<ul class="menu">
 				<li><a href="index.php"> Home </a></li>
 				<li><a href="admin_section.php"> Admin Portal </a></li>

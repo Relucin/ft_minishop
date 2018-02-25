@@ -15,12 +15,12 @@
 	<link rel="stylesheet" href="css/index.css">
 	<link rel="stylesheet" href="css/login.css">
 
-	<title>Our e shop website</title>
+	<title>iBrand On</title>
 </head>
 <body>
 	<div class="container">
 		<div class="welcome">
-			<h1>Our E-Shop Website</h1> <br>
+			<h1>iBrand On</h1> <br>
 		</div>
 		<div class="header">
 			<div id="entete">

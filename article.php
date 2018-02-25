@@ -18,7 +18,7 @@ session_start();
 <body>
 	<div class="container">
 		<div class="welcome">
-			<h1>Our E-Shop Website</h1> <br>
+			<h1>iBrand On</h1> <br>
 		</div>
 		<div class="header">
 			<div id="entete">
