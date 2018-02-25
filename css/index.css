@@ -108,12 +108,15 @@ body{
 .dropdown-content a{
 	color: black;
 	padding: 12px 16px;
+	border-radius: 9px;
 	text-decoration: none;
 	display: block;
 }
 
 /* Change color of dropdown links on hover */
-.dropdown-content a:hover {background-color: #99CCCC}
+.dropdown-content a:hover {
+	background-color: #99CCCC;
+}
 
 /* Show the dropdown menu on hover */
 .dropdown:hover .dropdown-content {

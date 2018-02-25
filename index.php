@@ -34,8 +34,11 @@ session_start();
 
 				<div class="dropdown">
 					<button class="dropbtn">Categories</button>
-					<div class="dropdown-content">
-						<a href="#">Books</a>
+					<div class='dropdown-content'>
+					<?php
+						echo "<a href='#'>Books</a>";
+						echo "<a href='#'>LOL</a>";
+					?>
 					</div>
 				</div>
 			</div>

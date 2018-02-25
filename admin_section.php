@@ -28,7 +28,7 @@ session_start();
 			<h2 class="admin_portal"> Admin Portal</h2>
 			<div class="main">
 				<div class="touches">
-					<ul class="menu">
+					<ul class="menu2">
 						<li><a href="article_mod.php"> Articles Section </a></li>
 						<li><a href="category_mod.php">Categories Section</a></li>
 						<li><a href="user_mod.php"> Users Section </a></li>
