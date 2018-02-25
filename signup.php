@@ -32,13 +32,11 @@
 
 		<div class="section">
 			<div class="log">
-				<h1>Log in</h1>
+				<h1>Sign up</h1>
 				<form action="controller/people.php" method="POST">
 					<input type="text" name="name" placeholder="Name" class="" value="">
 					<input type="password" name="password" placeholder="Password" class="">
-					<button type="submit" class="">Log in</button>
-
-					<p>Not member yet ? <a href="signup.php">Sign Up !</a></p>
+					<button type="submit" class="">Sign Up</button>
 				</form>
 			</div>
 

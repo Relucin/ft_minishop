@@ -9,7 +9,9 @@ session_start();
 <head>
 	<meta charset="utf-8">
 	<link rel="stylesheet" href="css/index.css">
+	<link rel="stylesheet" href="css/article.css">
 	<link rel="stylesheet" href="css/bask.css">
+
 
 	<title>Our e shop website</title>
 </head>
@@ -22,25 +24,28 @@ session_start();
 			<div id="entete">
 				<ul class="menu">
 					<li><a href="index.php"> Home </a></li>
-					<li><a href="signup.php"> Sign up </a></li>
-					<li><a href="login.php"> Log in </a></li>
-					<li><a href="admin_section.php"> Admin Portal </a></li>
 				</ul>
 			</div>
 		</div>
 
 		<div class="section">
 			<div id="categories">
-
-				<div class="dropdown">
-					<button class="dropbtn">Categories</button>
-					<div class="dropdown-content">
-						<a href="#">Books</a>
-					</div>
-				</div>
 			</div>
 			<div id="products">
+				<div class="name"><strong>< Name ></strong></div>
+				<hr>
+				<div class="description">
+					< Description >a
 
+				</div>
+				<hr />
+				<div class="addcart">
+					<h5>How many <?php  ?> do you want ?</h5>
+					<form class="cartform" action="index.html" method="post">
+						<input type="text" name="count" value=""><br>
+						<input type="submit" name="addbasket" value="Add to Basket">
+					</form>
+				</div>
 			</div>
 			<div id="cart">
 					<h2> Basket </h2>

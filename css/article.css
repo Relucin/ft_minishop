@@ -1,0 +1,33 @@
+#products{
+	border: 2px solid black;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.addcart{
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+
+}
+
+.addcart form{
+	height: 20%;
+}
+
+#products{
+	text-align: center;
+}
+
+
+hr{
+	width: 100%;
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+	margin-left: auto;
+	margin-right: auto;
+	border-style: inset;
+	border-width: 1px;
+	opacity: 0.2;
+}

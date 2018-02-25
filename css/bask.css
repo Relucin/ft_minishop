@@ -1,0 +1,13 @@
+.validbtn {
+	background-color: white;
+	color: #3F8EBF;
+}
+
+.cart{
+	position: absolute;
+}
+
+.bask tr{
+	position: absolute;
+	right: 0;
+}
