@@ -43,8 +43,10 @@ session_start();
 							<option value=""> Books </option>
 						</select>
 						<br><br>
-						<button class="btn" type="submit" name="add_art"> Add Article </button>
 
+						<textarea name="description" rows="8" cols="30"></textarea>
+						<br><br>
+						<button class="btn" type="submit" name="add_art"> Add Article </button>
 					</form>
 				</div>
 
@@ -59,7 +61,10 @@ session_start();
 							<option value=""> Books </option>
 						</select>	<br> <br>
 						<label for="name"> New Name : </label><input class="newname" type="text" name="newname" value="newname"> <br><br>
-						Description 
+						Description :
+						<br>
+						<textarea name="description" rows="8" cols="30"></textarea>
+						<br>
 						<button class="btn" type="submit" name="modify"> Modify </button>
 
 					</form>
