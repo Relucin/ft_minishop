@@ -51,6 +51,7 @@
 					<form class="cartform" action="item_cart.php" method="post">
 						<input type="hidden" name="id" value="<?php echo $_GET['item']?>">
 						<input type="hidden" name="name" value="<?php echo $row['item_name']?>">
+						<input type="hidden" name="price" value="<?php echo $row['item_price']?>">
 						<input type="text" name="count" value="" width="2px"><br>
 						<input type="submit" name="addcart" value="Add to cart">
 					</form>

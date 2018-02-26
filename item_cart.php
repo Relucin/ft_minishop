@@ -9,6 +9,7 @@
 		} else {
 			$_SESSION['basket'][$_POST['id']] = array(
 				'name' => $_POST['name'],
+				'price' => $_POST['price'],
 				'count' => $_POST['count']
 			);
 		}
