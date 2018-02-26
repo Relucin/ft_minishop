@@ -21,19 +21,19 @@
 					$sum = 0;
 					foreach ($basket as $key => $value) {
 						?>
+				<tr>
 				<td class="id"> <?php echo $key; ?> </td>
 				<td class="name"> <?php echo $value['name']; ?> </td>
-				<td class="price"> <?php echo "0"; ?></td>
+				<td class="price"> <?php echo $value['price']; $sum += $value['price']; ?></td>
 				<td class="count"> <?php echo $value['count']; ?> </td>
-
+				</tr>
 			<?php } ?>
 			</tbody>
 
 			<tfoot>
 				<tr>
 					<td colspan="5"></td>
-					<td class="right"><?php echo isset($_SESSION['basketPrice']) ? $_SESSION['basketPrice'] : '0.00'; ?>
-						$
+					<td class="right"><?php echo "$".$sum ?>
 					</td>
 				</tr>
 			</tfoot>
