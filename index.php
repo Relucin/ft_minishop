@@ -26,9 +26,13 @@ session_start();
 						if (!isset($_SESSION['user_id'])) {
 							echo '
 						<li><a href="signup.php"> Sign up </a></li>
-						<li><a href="login.php"> Log in </a></li>
-						<li><a href="admin_section.php"> Admin Portal </a></li>';
+						<li><a href="login.php"> Log in </a></li>';
 						} else {
+							if ($_SESSION['user_auth']){
+								echo '
+									<li><a href="admin_section.php"> Admin Portal </a></li>
+								';
+							}
 							echo '
 								<li><a href="logout.php">Log out</a></li>
 							';
