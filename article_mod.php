@@ -59,6 +59,7 @@ session_start();
 							<option value=""> Books </option>
 						</select>	<br> <br>
 						<label for="name"> New Name : </label><input class="newname" type="text" name="newname" value="newname"> <br><br>
+						Description 
 						<button class="btn" type="submit" name="modify"> Modify </button>
 
 					</form>

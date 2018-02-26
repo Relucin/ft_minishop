@@ -30,9 +30,10 @@
 		ic_item INT,
 		ic_cate INT,
 		PRIMARY KEY (ic_id),
-		FOREIGN KEY (ic_item) REFERENCES Items(item_id),
-		FOREIGN KEY (ic_cate) REFERENCES Categories(cate_id)),
-		ON DELETE CASCADE;";
+		FOREIGN KEY (ic_item) REFERENCES Items(item_id)
+		ON DELETE CASCADE,
+		FOREIGN KEY (ic_cate) REFERENCES Categories(cate_id)
+		ON DELETE CASCADE);";
 
 	mysqli_query($link, $sql);
 	$sql = "CREATE TABLE Users (
