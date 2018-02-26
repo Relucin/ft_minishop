@@ -13,15 +13,14 @@
 
 			<tbody>
 				<?php
-				//	foreach ($basket as $key => $value) {
-						// $product = ; get product id ?
-
+					$basket = $_SESSION['basket'];
+					foreach ($basket as $key => $value) {
 						?>
-				<td class="name"> <?php //echo "$product['name']"; ?> </td>
-				<td class="price"> <?php //echo "$product['price']"; ?></td>
-				<td class="count"> <?php //echo "$product['count']"; ?> </td>
+				<td class="name"> <?php echo $key; ?> </td>
+				<td class="price"> <?php echo "1"; ?></td>
+				<td class="count"> <?php echo $value; ?> </td>
 
-			<?php// } ?>
+			<?php } ?>
 			</tbody>
 
 			<tfoot>
@@ -36,7 +35,7 @@
 
 				<div class="cartvalid">
 					<?php
-						if (isset($_SESSION['pseudo'])) {
+						if (isset($_SESSION['user_id'])) {
 							echo "<form method=\"post\" action=\"controller/orders.php\" />
 							<input type=\"hidden\" name=\"from\" value=\"basket\" />
 							<input type=\"hidden\" name=\"success\" value=\"member\" />

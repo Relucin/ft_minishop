@@ -4,14 +4,12 @@ session_start();
 
 ?>
 
-<!DOCTYPE html>
 <html>
 <head>
 	<meta charset="utf-8">
 	<link rel="stylesheet" href="css/index.css">
 	<link rel="stylesheet" href="css/article.css">
 	<link rel="stylesheet" href="css/bask.css">
-
 
 	<title>Our e shop website</title>
 </head>
@@ -32,18 +30,17 @@ session_start();
 			<div id="categories">
 			</div>
 			<div id="products">
-				<div class="name"><strong>< Name ></strong></div>
+				<div class="name"><strong><?php if (isset($_GET['name'])) echo $_GET['name']; ?></strong></div>
 				<hr>
 				<div class="description">
-					< Description >a
-
+					<?php //echo  [descritpion] ?>
 				</div>
 				<hr />
 				<div class="addcart">
-					<h5>How many <?php  ?> do you want ?</h5>
-					<form class="cartform" action="index.html" method="post">
-						<input type="text" name="count" value=""><br>
-						<input type="submit" name="addbasket" value="Add to Basket">
+					<h5>How many <?php if(isset($_GET['name'])) echo $_GET['name'];  ?> do you want ?</h5>
+					<form class="cartform" action="add_item_cart.php" method="post">
+						<input type="text" name="count" value="" width="2px"><br>
+						<input type="submit" name="addcart" value="Add to cart">
 					</form>
 				</div>
 			</div>

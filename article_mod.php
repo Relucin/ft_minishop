@@ -10,6 +10,8 @@ session_start();
 	<meta charset="utf-8">
 	<link rel="stylesheet" href="css/index.css">
 	<link rel="stylesheet" href="css/admin_section.css">
+	<link rel="stylesheet" href="css/article_mod.css">
+
 
 	<title>Our e shop website</title>
 </head>
@@ -29,24 +31,68 @@ session_start();
 			<h2 class="admin_portal"> Admin Portal</h2>
 			<h4> Articles Section</h4>
 			<div class="main">
-				<form class="lol" action="item.php" method="post">
+				<div id="add_art">
+					<h5><strong>Add Article</strong></h5>
+					<form class="" action="index.html" method="post">
+						Name : <input class="name" type="text" name="name" value="Name"> <br><br>
+						First Category :
+						<select class="" name="cate_menu">
+							<?php
+							//foreach ($categories as $key => $value) {
+							//} ?>
+							<option value=""> Books </option>
+						</select>
+						<br><br>
+						<button class="btn" type="submit" name="add_art"> Add Article </button>
 
-					Name :<input class="name" type="text" name="name"> <br><br>
-					New Name :<input class="newname" type="text" name="newname"> <br><br>
-					<div class="choose_cat">
-						<label for="name"> Category : </label>
+					</form>
+				</div>
+
+				<div id="modify_art_name">
+					<h5> <strong> Modify Article's Name</strong></h5>
+					<form class="modify_art" action="index.html" method="post">
+						Name :
+						<select class="" name="cate_menu">
+							<?php
+							//foreach ($categories as $key => $value) {
+							//} ?>
+							<option value=""> Books </option>
+						</select>	<br> <br>
+						<label for="name"> New Name : </label><input class="newname" type="text" name="newname" value="newname"> <br><br>
+						<button class="btn" type="submit" name="modify"> Modify </button>
+
+					</form>
+				</div>
+
+				<div id="add_art_category">
+					<h5><strong> Add New Category</strong></h5>
+					<form class="add_art_category" action="index.html" method="post">
+						Name :
+						<select class="" name="cate_menu">
+							<?php
+							//foreach ($categories as $key => $value) {
+							//} ?>
+							<option value=""> Books </option>
+						</select>						<br><br>
+						Add Category :
 						<select class="" name="cate_menu">
 							<?php
 								require 'category.php';
 								cate_list();
 							?>
 						</select>
-					</div>
-					<br>
-					<textarea name="description" id="description" rows="8" cols="40" placeholder="Describe the article"></textarea>  <br>
-					<button class="btn" type="submit" name="add"> Add </button>
-					<button class="btn" type="submit" name="modify"> Modify </button>
-					<button class="btn" type="submit" name="delete"> Delete </button>
+						<br><br><br>
+						<button class="btn" type="submit" name="del_Cat"> Delet Category </button>
+						<br>
+						<button class="btn" type="submit" name="add_Cat"> Add Category </button>
+					</form>
+				</div>
+
+			</div>
+			<br><br><br><br><br><br><br><br>
+			<div id="del_art_name">
+				<form class="del_Art" action="index.html" method="post">
+					<button class="btn" type="submit" name="delete"> Delete Article </button>
 				</form>
 			</div>
 		</div>
