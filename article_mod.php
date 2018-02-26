@@ -74,10 +74,16 @@ require 'item.php';
 				<div id="add_art_category">
 					<h5><strong> Add New Category</strong></h5>
 					<form class="add_art_category" action="item.php" method="post">
+						Item Name :
+						<select class="" name="item_menu_add_cat">
+							<?php
+								item_list('<option value="%s">%s</option>');
+							 ?>
+						</select>	<br> <br>
 						Category Name :
 						<select class="" name="cate_menu">
 							<?php
-								cate_list('<option value="%s">%s</option>');
+								cate_list_item('<option value="%s">%s</option>');
 							?>
 						</select>						<br><br>
 

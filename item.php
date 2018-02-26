@@ -13,6 +13,17 @@
 		}
 	}
 
+	function cate_list_item($str) {
+		global $link;
+		$command = sprintf("SELECT * FROM Item_category WHERE `ic_item`=`%s`", $_POST['item_menu_add_cat']);
+		$category_query = mysqli_query($link, $command);
+		if (!empty($category_query)) {
+			while ($row = mysqli_fetch_array($category_query)) {
+				printf($str, $row['ic_cate'], "testzer");
+			}
+		}
+	}
+
 	function add_item() {
 		global $link;
 		$query = sprintf("SELECT * FROM Items WHERE `item_name`='%s'", $_POST['addname']);
@@ -70,7 +81,7 @@
 		$sql = sprintf("DELETE FROM Item_category WHERE `ic_cate`='%s'",
 		$_POST['cate_menu']);
 		if (mysqli_real_query($link, $sql)) {
-			header('Location: category_mod.php');
+			header('Location: article_mod.php');
 		}
 	}
 
