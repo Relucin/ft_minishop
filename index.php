@@ -59,29 +59,21 @@ if (!isset($_SESSION['basket']))
 				</div>
 			</div>
 			<div id="products">
-				<?php  //foreach ($_SESSION['category'] as $key => $value) {
-					// echo "
-						// <div class='article'>
-							// <div class='artname'><a href=article.php/?name=".$value.">".$value."</a></div>
-							// <div class='artdes'>.</div>
-						// </div>
-					// ";
-				//} ?>
-				<div class="article">
-					<div class="artname"><a href="<?php  ?>"> name</a></div>
-					<div class="artdes">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</div>
-				</div>
-				<div class="article">
-					<div class="artname"><a href="<?php  ?>"> name</a></div>
-					<div class="artdes">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</div>
-				</div>
-				<div class="article">
-					<div class="artname"><a href="<?php  ?>"> name</a></div>
-					<div class="artdes">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</div>
-				</div>
 				<?php
-					echo "";
-
+					require 'db_init.php';
+					$cate_id = mysqli_real_escape_string($link, $_GET['category']);
+					$command = sprintf("SELECT * FROM Item_category"
+									. " JOIN Items ON ic_item=Items.item_id"
+									. " WHERE ic_cate='%d'", $cate_id);
+					$query = mysqli_query($link, $command);
+					if (!empty($query)) {
+						while ($row = mysqli_fetch_array($query)) {
+							printf('<div class="article">'
+									. '<div class="artname"><a href="article.php?item=%d">%s</a></div>'
+									. '<div class="artdes">%s</div></div>',
+									$row['item_id'], $row['item_name'], $row['item_url']);
+						}
+					}
 				?>
 			</div>
 			<?php include("basket.php") ?>
