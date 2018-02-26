@@ -1,4 +1,6 @@
 .main{
 	display: flex;
 	justify-content: space-between;
+	min-width: 800px;
+	max-width: 1500px;
 }
