@@ -1,10 +1,10 @@
 body{
 	background-image: url("Wood.jpg");
 	background-repeat: no-repeat;
-
 }
 
 .container{
+	position: relative;
 	width: 1300px;
 	height: 1300px;
 	display: flex;
