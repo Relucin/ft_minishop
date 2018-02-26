@@ -13,6 +13,10 @@
 			if ($row = mysqli_fetch_assoc($result)) {
 				if ($row['user_passwd'] === get_hash($_POST['password'])) {
 					$_SESSION['user_id'] = $row['user_id'];
+					$_SESSION['user_uname'] = $row['user_uname'];
+					$_SESSION['user_lname'] = $row['user_lname'];
+					$_SESSION['user_fname'] = $row['user_fname'];
+					$_SESSION['user_auth'] = $row['user_auth'];
 					header("Location: index.php");
 					exit();
 				}

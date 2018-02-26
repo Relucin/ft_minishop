@@ -1,7 +1,10 @@
 <?php
 
 session_start();
-
+if (!$_SESSION['user_auth']) {
+	header("Location: index.php");
+	exit();
+}
 ?>
 
 <!DOCTYPE html>

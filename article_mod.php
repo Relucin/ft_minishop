@@ -29,7 +29,7 @@ session_start();
 			<h2 class="admin_portal"> Admin Portal</h2>
 			<h4> Articles Section</h4>
 			<div class="main">
-				<form class="lol" action="index.html" method="post">
+				<form class="lol" action="item.php" method="post">
 					<label for="name"> Name : </label><input class="name" type="text" name="name" value="Name"> <br><br>
 					<label for="name"> New Name : </label><input class="newname" type="text" name="newname" value="newname"> <br><br>
 					<div class="choose_cat">
