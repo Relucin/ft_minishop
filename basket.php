@@ -13,15 +13,14 @@
 
 			<tbody>
 				<?php
-				//	foreach ($basket as $key => $value) {
-						// $product = ; get product id ?
-
+					$basket = $_SESSION['basket'];
+					foreach ($basket as $key => $value) {
 						?>
-				<td class="name"> <?php //echo "$product['name']"; ?> </td>
-				<td class="price"> <?php //echo "$product['price']"; ?></td>
-				<td class="count"> <?php //echo "$product['count']"; ?> </td>
+				<td class="name"> <?php echo $key; ?> </td>
+				<td class="price"> <?php echo "1"; ?></td>
+				<td class="count"> <?php echo $value; ?> </td>
 
-			<?php// } ?>
+			<?php } ?>
 			</tbody>
 
 			<tfoot>
