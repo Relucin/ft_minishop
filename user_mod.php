@@ -30,7 +30,7 @@ session_start();
 			<h2 class="admin_portal"> Admin Portal</h2>
 			<h4> Users Section</h4>
 			<div class="main">
-				<form class="lol" action="index.html" method="post">
+				<form class="lol" action="user.php" method="post">
 					<label for="name"> Name : </label><input class="name" type="text" name="name" value="Name"> <br><br>
 					<label for="name"> New Name : </label><input class="newname" type="text" name="newname" value="newname"> <br><br>
 					<label for="name"> Password : </label><input class="password" type="text" name="password" value="password"> <br><br>

@@ -24,7 +24,7 @@
 		}
 	}
 
-	function create() {
+	function create_user() {
 		global $link;
 		$uname = mysqli_real_escape_string($link, $_POST['username']);
 		$query = sprintf("SELECT `user_uname`
@@ -43,11 +43,77 @@
 		}
 	}
 
-	if ($_POST['submit'] == 'Login') {
+	function add_user()
+	{
+		global $link;
+		$query = sprintf("SELECT * FROM Users WHERE `user_name`='%s'",
+					$_POST['name']);
+		if (!mysqli_num_rows(mysqli_query($link, $query))) {
+			$sql = sprintf("INSERT INTO Users (`user_name`)
+					VALUES ('%s')", $_POST['name']);
+			if (mysqli_real_query($link, $sql)) {
+				header('Location: user_mod.php');
+			}
+		}
+	}
+
+	function modify_user()
+	{
+		global $link;
+		if (!$_POST['newname'])
+		{
+			header('Location: user_mod.php');
+			exit();
+		}
+		$sql = sprintf("UPDATE Users SET `user_name`='%s' WHERE
+			`user_name`='%s'", $_POST['newname']);
+
+		$sql2 = sprintf("UPDATE Users SET `user_passwd`='%s' WHERE
+			`user_name`='%s'", get_hash($_POST['password']));
+			mysqli_real_query($link, $sql);
+			mysqli_real_query($link, $sql2);
+
+	}
+
+	function delete_user()
+	{
+		global $link;
+		$query = sprintf("SELECT * FROM Users WHERE `user_name`='%s'", $_POST['name']);
+		if (mysqli_num_rows(mysqli_query($link, $query)) > 0) {
+			$sql = sprintf("DELETE FROM Users WHERE `user_name`='%s'",
+			$_POST['name']);
+			if (mysqli_real_query($link, $sql)) {
+				header('Location: user_mod.php');
+			}
+		}
+	}
+
+	if (isset($_POST['submit']) && $_POST['submit'] == 'Login') {
 		auth();
 		header("Location: login.php");
-	} else if ($_POST['submit'] == 'Sign Up') {
-		create();
+	}
+	else if (isset($_POST['submit']) && $_POST['submit'] == 'Sign Up')
+	{
+		create_user();
 		header("Location: signup.php");
 	}
+	else if (isset($_POST['add'])){
+		add_user();
+		header("Location: user_mod.php");
+	}
+	else if (isset($_POST['modify'])){
+		modify_user();
+		header("Location: user_mod.php");
+	}
+	else if (isset($_POST['delete'])){
+		delete_user();
+		header("Location: user_mod.php");
+	}
+
+
+
+
+
+
+
 ?>

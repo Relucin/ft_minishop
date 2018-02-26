@@ -1,5 +1,4 @@
 <?php
-	session_start();
 	require 'db_init.php';
 
 	function item_list($str) {
@@ -13,18 +12,41 @@
 		}
 	}
 
-	function cate_list_item($str, $id) {
+	function add_item() {
 		global $link;
-		$command = sprintf("SELECT * FROM Item_category"
-						. " JOIN Categories ON ic_cate=Categories.cate_id"
-						. " WHERE ic_item='%d'", $id);
-		$category_query = mysqli_query($link, $command);
-		if (!empty($category_query)) {
-			while ($row = mysqli_fetch_array($category_query)) {
-				printf($str, $row['ic_cate'], $row['cate_name']);
+		$query = sprintf("SELECT * FROM Items WHERE `item_name`='%s'", $_POST['addname']);
+		if (!mysqli_num_rows(mysqli_query($link, $query))) {
+			$sql = sprintf("INSERT INTO Items (`item_name`) VALUES ('%s')", $_POST['addname']);
+			if (mysqli_real_query($link, $sql)) {
+
+				$query_id_item = mysqli_query(sprintf("SELECT item_id FROM Items WHERE `item_name`='%s'", $_POST['addname']));
+				$query_id_cate = mysqli_query(sprintf("SELECT cate_id FROM Categories WHERE `cate_name`='%s'", $_POST['cate_menu_item']));
+
+				$row_id_item = mysqli_fetch_array($query_id_item);
+				$row_id_cate = mysqli_fetch_array($query_id_cate);
+
+				$sql2 = sprintf("INSERT INTO Item_category (`ic_item`, `ic_cate`) VALUES ('%d', '%d')",
+				$row_id_item[0], $row_id_cate[0]);
+
+				header('Location: article_mod.php');
 			}
+
 		}
 	}
+    //
+    //
+	// function create() {
+	// 	global $link;
+	// 	$query = sprintf("SELECT * FROM Categories WHERE `cate_name`='%s'",
+	// 				$_POST['newname']);
+	// 	if (!mysqli_num_rows(mysqli_query($link, $query))) {
+	// 		$sql = sprintf("INSERT INTO Categories (`cate_name`)
+	// 				VALUES ('%s')", $_POST['newname']);
+	// 		if (mysqli_real_query($link, $sql)) {
+	// 			header('Location: category_mod.php');
+	// 		}
+	// 	}
+	// }
 
 	function add_item_cat()
 	{
