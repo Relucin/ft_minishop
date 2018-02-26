@@ -37,7 +37,7 @@ require 'item.php';
 				<div id="add_art">
 					<h5><strong>Add Article</strong></h5>
 					<form class="" action="item.php" method="post">
-						Name : <input class="addname" type="text" name="addname" value="add item"> <br><br>
+						Name : <input class="addname" type="text" name="name" placeholder="add item"> <br><br>
 						First Category :
 						<select class="" name="cate_menu_item">
 							<?php
@@ -45,7 +45,8 @@ require 'item.php';
 							?>
 						</select>
 						<br><br>
-
+						Price : <input type="number" name="price" value="0">
+						<br><br>
 						<textarea name="description" rows="8" cols="30"></textarea>
 						<br><br>
 						<button class="btn" type="submit" name="add_art"> Add Article </button>
@@ -61,7 +62,7 @@ require 'item.php';
 								item_list('<option value="%s">%s</option>');
 							 ?>
 						</select>	<br> <br>
-						<label for="name"> New Name : </label><input class="newname" type="text" name="newname" value="newname"> <br><br>
+						<label for="name"> New Name : </label><input class="newname" type="text" name="newname" placeholder="newname"> <br><br>
 						Description :
 						<br>
 						<textarea name="description" rows="8" cols="30"></textarea>
@@ -83,7 +84,7 @@ require 'item.php';
 						Category Name :
 						<select class="" name="cate_menu">
 							<?php
-								cate_list_item('<option value="%s">%s</option>', 5);
+								cate_list('<option value="%s">%s</option>', 5);
 							?>
 						</select>						<br><br>
 

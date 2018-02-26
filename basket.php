@@ -19,6 +19,7 @@
 			<tbody>
 				<?php
 					$basket = $_SESSION['basket'];
+					$sum = 0;
 					foreach ($basket as $key => $value) {
 						?>
 				<td class="id"> <?php echo $key; ?> </td>

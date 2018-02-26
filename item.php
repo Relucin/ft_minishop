@@ -26,45 +26,14 @@
 		}
 	}
 
-	function add_item() {
-		global $link;
-		$query = sprintf("SELECT * FROM Items WHERE `item_name`='%s'", $_POST['addname']);
-		if (!mysqli_num_rows(mysqli_query($link, $query))) {
-			$sql = sprintf("INSERT INTO Items (`item_name`) VALUES ('%s')", $_POST['addname']);
-			if (mysqli_real_query($link, $sql)) {
-
-				$query_id_item = mysqli_query(sprintf("SELECT item_id FROM Items WHERE `item_name`='%s'", $_POST['addname']));
-				$query_id_cate = mysqli_query(sprintf("SELECT cate_id FROM Categories WHERE `cate_name`='%s'", $_POST['cate_menu_item']));
-
-				$row_id_item = mysqli_fetch_array($query_id_item);
-				$row_id_cate = mysqli_fetch_array($query_id_cate);
-
-				$sql2 = sprintf("INSERT INTO Item_category (`ic_item`, `ic_cate`) VALUES ('%d', '%d')",
-				$row_id_item[0], $row_id_cate[0]);
-
-				header('Location: article_mod.php');
-			}
-
-		}
-	}
-    //
-    //
-	// function create() {
-	// 	global $link;
-	// 	$query = sprintf("SELECT * FROM Categories WHERE `cate_name`='%s'",
-	// 				$_POST['newname']);
-	// 	if (!mysqli_num_rows(mysqli_query($link, $query))) {
-	// 		$sql = sprintf("INSERT INTO Categories (`cate_name`)
-	// 				VALUES ('%s')", $_POST['newname']);
-	// 		if (mysqli_real_query($link, $sql)) {
-	// 			header('Location: category_mod.php');
-	// 		}
-	// 	}
-	// }
-
 	function add_item_cat()
 	{
-
+		global $link;
+		$query = sprintf("INSERT INTO Item_category(`ic_item`,`ic_cate`)"
+						. " VALUES('%d', '%d')",
+						$_POST['item_menu_add_cat'],
+						$_POST['cate_menu']);
+		mysqli_real_query($link, $query);
 	}
 
 	function delete_item()
@@ -89,29 +58,35 @@
 
 	function modify_item()
 	{
-
+		global $link;
+		$item = mysqli_real_escape_string($link, $_POST['newname']);
+		$des = mysqli_real_escape_string($link, $_POST['description']);
+		$query = sprintf("UPDATE Items SET item_name='%s',
+			item_url='%s' WHERE item_id='%d'",
+				$item, $des, $_POST['item_menu_modify']);
+		mysqli_real_query($link, $query);
 	}
 
-	// function create() {
-	// 	global $link;
-	// 	$item = mysqli_real_escape_string($link, $_POST['name']);
-	// 	$query = sprintf("SELECT * FROM Items WHERE `item_name`='%s'",
-	// 				$item);
-	// 	if (!mysqli_num_rows(mysqli_query($link, $query))) {
-	// 		$eurl = mysqli_real_escape_string($link, $_POST['description']);
-	// 		$sql = sprintf("INSERT INTO Items (`item_name`, `item_count`, `item_url`)
-	// 				VALUES ('%s', '%d', '%s')",
-	// 				$item, 1, $eurl);
-	// 		if (mysqli_real_query($link, $sql)) {
-	// 			header('Location: article_mod.php');
-	// 			exit();
-	// 		}
-	// 		//TODO Session variable to return result..
-	// 	}
-	// }
+	function item_create() {
+		global $link;
+		if ($_POST['name']){
+			$item = mysqli_real_escape_string($link, $_POST['name']);
+			$query = sprintf("SELECT * FROM Items WHERE `item_name`='%s'",
+						$item);
+			$eurl = mysqli_real_escape_string($link, $_POST['description']);
+			$sql = sprintf("INSERT INTO Items (`item_name`, `item_count`, `item_url`, `item_price`)
+					VALUES ('%s', '%d', '%s', '%d')",
+					$item, 1, $eurl, $_POST['price']);
+			if (mysqli_real_query($link, $sql)) {
+				header('Location: article_mod.php');
+				exit();
+			}
+				//TODO Session variable to return result..
+		}
+	}
 
 	if(isset($_POST['add_art'])) {
-		add_item();
+		item_create();
 		header('Location: article_mod.php');
 	} else if (isset($_POST['modify'])){
 		modify_item();
