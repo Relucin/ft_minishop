@@ -83,7 +83,7 @@ require 'item.php';
 						Category Name :
 						<select class="" name="cate_menu">
 							<?php
-								cate_list_item('<option value="%s">%s</option>');
+								cate_list_item('<option value="%s">%s</option>', 5);
 							?>
 						</select>						<br><br>
 

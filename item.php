@@ -13,13 +13,15 @@
 		}
 	}
 
-	function cate_list_item($str) {
+	function cate_list_item($str, $id) {
 		global $link;
-		$command = sprintf("SELECT * FROM Item_category WHERE `ic_item`=`%s`", $_POST['item_menu_add_cat']);
+		$command = sprintf("SELECT * FROM Item_category"
+						. " JOIN Categories ON ic_cate=Categories.cate_id"
+						. " WHERE ic_item='%d'", $id);
 		$category_query = mysqli_query($link, $command);
 		if (!empty($category_query)) {
 			while ($row = mysqli_fetch_array($category_query)) {
-				printf($str, $row['ic_cate'], "testzer");
+				printf($str, $row['ic_cate'], $row['cate_name']);
 			}
 		}
 	}
