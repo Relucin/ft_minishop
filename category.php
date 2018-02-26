@@ -35,8 +35,8 @@
 			header('Location: category_mod.php');
 			exit();
 		}
-		$sql = sprintf("UPDATE Categories SET `cate_name`=`%s` WHERE
-			`cate_name`=`%s`", $_POST['newname'], $_POST['cate_menu']);
+		$sql = sprintf("UPDATE Categories SET `cate_name`='%s' WHERE
+			`cate_id`='%d'", $_POST['newname'], $_POST['cate_menu']);
 			if (mysqli_real_query($link, $sql)) {
 				header('Location: category_mod.php');
 			}
@@ -57,11 +57,12 @@
 
 	if(isset($_POST['add'])) {
 		create();
-	}
-	else if (isset($_POST['modify'])){
+		header('Location: category_mod.php');
+	} else if (isset($_POST['modify'])){
 		modify();
-	}
-	else if (isset($_POST['delete'])){
+		header('Location: category_mod.php');
+	} else if (isset($_POST['delete'])){
 		delet();
+		header('Location: category_mod.php');
 	}
 ?>
