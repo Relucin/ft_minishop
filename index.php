@@ -1,6 +1,5 @@
 <?php
 
-session_start();
 require 'category.php';
 
 if (!isset($_SESSION['basket']))
