@@ -66,14 +66,16 @@ if (!isset($_SESSION['basket']))
 						$command = sprintf("SELECT * FROM Item_category"
 										. " JOIN Items ON ic_item=Items.item_id"
 										. " WHERE ic_cate='%d'", $cate_id);
-						$query = mysqli_query($link, $command);
-						if (!empty($query)) {
-							while ($row = mysqli_fetch_array($query)) {
-								printf('<div class="article">'
-										. '<div class="artname"><a href="article.php?item=%d">%s</a></div>'
-										. '<div class="artdes">%s</div></div>',
-										$row['item_id'], $row['item_name'], $row['item_url']);
-							}
+					} else {
+						$command = "SELECT * FROM Items";
+					}
+					$query = mysqli_query($link, $command);
+					if (!empty($query)) {
+						while ($row = mysqli_fetch_array($query)) {
+							printf('<div class="article">'
+									. '<div class="artname"><a href="article.php?item=%d">%s</a></div>'
+									. '<div class="artdes">%s</div></div>',
+									$row['item_id'], $row['item_name'], $row['item_url']);
 						}
 					}
 				?>
