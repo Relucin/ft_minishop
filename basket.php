@@ -36,7 +36,7 @@
 
 				<div class="cartvalid">
 					<?php
-						if (isset($_SESSION['pseudo'])) {
+						if (isset($_SESSION['user_id'])) {
 							echo "<form method=\"post\" action=\"controller/orders.php\" />
 							<input type=\"hidden\" name=\"from\" value=\"basket\" />
 							<input type=\"hidden\" name=\"success\" value=\"member\" />

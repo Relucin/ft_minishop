@@ -1,11 +1,12 @@
 body{
 	background-image: url("Wood.jpg");
 	background-repeat: no-repeat;
+	min-width: 1500px;
 }
 
 .container{
 	position: relative;
-	width: 1300px;
+	min-width: 1300px;
 	height: 1300px;
 	display: flex;
 	flex-direction: column;
