@@ -1,4 +1,7 @@
 <?php
+	//docker-machine start PROJECT
+	//eval $(docker-machine env PROJECT)
+	//docker run --name phprush00 -e MYSQL_ROOT_PASSWORD=root -e MYSQL_DATABASE=RUSH -p 3306:3306 mysql &
 	$server = "192.168.99.100";
 	$username = "root";
 	$passwd = "root";
@@ -15,6 +18,7 @@
 		item_id INT NOT NULL AUTO_INCREMENT,
 		item_name VARCHAR(255) NOT NULL,
 		item_url BLOB NOT NULL,
+		item_price INT,
 		item_count INT,
 		PRIMARY KEY (item_id));";
 
