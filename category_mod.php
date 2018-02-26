@@ -29,18 +29,18 @@ session_start();
 			<h2 class="admin_portal"> Admin Portal</h2>
 			<h4> Categories Section</h4>
 			<div class="main">
-				<form class="lol" action="index.html" method="post">
+				<form class="lol" action="category.php" method="post">
 					<div class="choose_cat">
 						<label for="name"> Category Name : </label>
 						<select class="" name="cate_menu">
 							<?php
-							//foreach ($categories as $key => $value) {
-							//} ?>
-							<option value=""> Books </option>
+								require 'category.php';
+								cate_list('<option value="%s">%s</option>');
+							?>
 						</select>
 					</div>
 					<br>
-					<label for="name"> New Name : </label><input class="newname" type="text" name="newname" value="newname"> <br><br>
+					<label for="name"> New Name : </label><input class="newname" type="text" name="newname" placeholder="newname"> <br><br>
 					<button class="btn" type="submit" name="add"> Add </button>
 					<button class="btn" type="submit" name="modify"> Modify </button>
 					<button class="btn" type="submit" name="delete"> Delete </button>

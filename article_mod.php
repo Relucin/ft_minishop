@@ -31,8 +31,6 @@ session_start();
 			<h2 class="admin_portal"> Admin Portal</h2>
 			<h4> Articles Section</h4>
 			<div class="main">
-
-
 				<div id="add_art">
 					<h5><strong>Add Article</strong></h5>
 					<form class="" action="index.html" method="post">
@@ -79,9 +77,9 @@ session_start();
 						Add Category :
 						<select class="" name="cate_menu">
 							<?php
-							//foreach ($categories as $key => $value) {
-							//} ?>
-							<option value=""> Books </option>
+								require 'category.php';
+								cate_list();
+							?>
 						</select>
 						<br><br><br>
 						<button class="btn" type="submit" name="del_Cat"> Delet Category </button>
