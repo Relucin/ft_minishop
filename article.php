@@ -1,7 +1,15 @@
 <?php
-
-session_start();
-
+	session_start();
+	require 'db_init.php';
+	if (isset($_GET['item'])) {
+		$command = sprintf('SELECT * FROM Items WHERE `item_id`="%d"',
+							$_GET['item']);
+		$query = mysqli_query($link, $command);
+		$row = mysqli_fetch_array($query);
+	} else {
+		header('Location: index.php');
+		exit();
+	}
 ?>
 
 <html>
@@ -30,15 +38,19 @@ session_start();
 			<div id="categories">
 			</div>
 			<div id="products">
-				<div class="name"><strong><?php if (isset($_GET['name'])) echo $_GET['name']; ?></strong></div>
+				<div class="name"><strong><?php
+				echo $row['item_name'];
+				?></strong></div>
 				<hr>
 				<div class="description">
 					<?php //echo  [descritpion] ?>
 				</div>
 				<hr />
 				<div class="addcart">
-					<h5>How many <?php if(isset($_GET['name'])) echo $_GET['name'];  ?> do you want ?</h5>
-					<form class="cartform" action="add_item_cart.php" method="post">
+					<h5>How many <?php echo $row['item_name'] ?> do you want ?</h5>
+					<form class="cartform" action="item_cart.php" method="post">
+						<input type="hidden" name="id" value="<?php echo $_GET['item']?>">
+						<input type="hidden" name="name" value="<?php echo $row['item_name']?>">
 						<input type="text" name="count" value="" width="2px"><br>
 						<input type="submit" name="addcart" value="Add to cart">
 					</form>
