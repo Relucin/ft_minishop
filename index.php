@@ -1,6 +1,7 @@
 <?php
 
 session_start();
+require 'category.php';
 
 ?>
 
@@ -49,9 +50,7 @@ session_start();
 					<button class="dropbtn">Categories</button>
 					<div class='dropdown-content'>
 					<?php
-					//	foreach ($categories as $key => $value) {
-					//	echo "<a href='index.php?category=".$_GET['categories']."'>Books</a>";
-						echo "<a href='#'>LOL</a>";
+						cate_list('<a href="index.php?category=%s">%s</a>');
 					?>
 					</div>
 				</div>
@@ -74,7 +73,7 @@ session_start();
 					<div class="artname"><a href="<?php  ?>"> name</a></div>
 					<div class="artdes">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</div>
 				</div>
-				
+
 
 				<?php
 					echo "";
