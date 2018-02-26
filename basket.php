@@ -1,3 +1,8 @@
+<?php
+	session_start();
+	if (!isset($_SESSION['basket']))
+		$_SESSION['basket'] = array();
+?>
 <div id="cart">
 		<h2> Basket </h2>
 		<table class="bask">
@@ -16,9 +21,10 @@
 					$basket = $_SESSION['basket'];
 					foreach ($basket as $key => $value) {
 						?>
-				<td class="name"> <?php echo $key; ?> </td>
-				<td class="price"> <?php echo "1"; ?></td>
-				<td class="count"> <?php echo $value; ?> </td>
+				<td class="id"> <?php echo $key; ?> </td>
+				<td class="name"> <?php echo $value['name']; ?> </td>
+				<td class="price"> <?php echo "0"; ?></td>
+				<td class="count"> <?php echo $value['count']; ?> </td>
 
 			<?php } ?>
 			</tbody>
